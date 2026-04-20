@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model kambing {
+  id          Int           @id @default(autoincrement())
+  nama        String        @db.VarChar(100)
+  jenis       String        @db.VarChar(50)
+  berat       Float
+  harga       Int
+  stok        Int           @default(0)
+  imageUrl    String?       @db.VarChar(255)
+  deskripsi   String?       @db.Text
+  isActive    Boolean       @default(true)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  order_items order_items[]
+}
+
+model order_items {
+  id         Int      @id @default(autoincrement())
+  order_id   Int?
+  kambing_id Int?
+  qty        Int?
+  harga      Int?
+  orders     orders?  @relation(fields: [order_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "order_items_ibfk_1")
+  kambing    kambing? @relation(fields: [kambing_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "order_items_ibfk_2")
+
+  @@index([kambing_id], map: "kambing_id")
+  @@index([order_id], map: "order_id")
+}
+
+model orders {
+  id          Int           @id @default(autoincrement())
+  user_id     Int?
+  total       Int?
+  status      String?       @db.VarChar(50)
+  created_at  DateTime      @default(now())
+  order_items order_items[]
+  users       users?        @relation(fields: [user_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "orders_ibfk_1")
+  payments    payments[]
+  pengiriman  pengiriman[]
+
+  @@index([user_id], map: "user_id")
+}
+
+model payments {
+  id           Int      @id @default(autoincrement())
+  order_id     Int?
+  metode       String?  @db.VarChar(50)
+  status       String?  @db.VarChar(50)
+  payment_date DateTime @default(now())
+  orders       orders?  @relation(fields: [order_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "payments_ibfk_1")
+
+  @@index([order_id], map: "order_id")
+}
+
+model pengiriman {
+  id            Int       @id @default(autoincrement())
+  order_id      Int?
+  alamat        String?   @db.Text
+  status        String?   @db.VarChar(50)
+  tanggal_kirim DateTime? @db.Date
+  orders        orders?   @relation(fields: [order_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "pengiriman_ibfk_1")
+
+  @@index([order_id], map: "order_id")
+}
+
+model users {
+  id         Int         @id @default(autoincrement())
+  nama       String?     @db.VarChar(100)
+  email      String?     @unique(map: "email") @db.VarChar(100)
+  password   String?     @db.VarChar(255)
+  role       users_role? @default(user)
+  created_at DateTime    @default(now())
+  orders     orders[]
+}
+
+enum users_role {
+  admin
+  owner
+  user
+}
