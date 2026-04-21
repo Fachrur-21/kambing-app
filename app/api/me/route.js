@@ -22,7 +22,7 @@ export async function GET(request) {
       data: decoded
     })
 
-  } catch (error) {
+  } catch {
     return Response.json({ error: 'Token tidak valid' }, { status: 401 })
   }
 }
