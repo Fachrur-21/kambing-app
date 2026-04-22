@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma'
-import { verifyAuthToken } from '@/lib/auth'
+import { hasProductManagerRole, verifyAuthToken } from '@/lib/auth'
 
 function parseCheckoutPayload(body) {
   if (!body || typeof body !== 'object') {
@@ -35,6 +35,39 @@ function mapKnownErrorStatus(message) {
   if (message === 'Stok tidak cukup') return 400
   if (message === 'Data tidak ditemukan') return 404
   return 500
+}
+
+export async function GET(request) {
+  try {
+    const auth = verifyAuthToken(request)
+
+    if (auth.error) {
+      return Response.json({ message: 'Unauthorized', data: null }, { status: 401 })
+    }
+
+    if (!hasProductManagerRole(auth.decoded)) {
+      return Response.json({ message: 'Forbidden', data: null }, { status: 403 })
+    }
+
+    const data = await prisma.orders.findMany({
+      orderBy: { created_at: 'desc' },
+      select: {
+        id: true,
+        user_id: true,
+        total: true,
+        status: true,
+        created_at: true
+      }
+    })
+
+    return Response.json({
+      message: 'Data orders',
+      data
+    })
+  } catch (error) {
+    console.error(error)
+    return Response.json({ message: 'Terjadi error', data: null }, { status: 500 })
+  }
 }
 
 export async function POST(request) {
