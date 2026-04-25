@@ -68,7 +68,7 @@ export default function LoginForm() {
             type="text"
             value={form.username}
             onChange={(event) => setForm((prev) => ({ ...prev, username: event.target.value }))}
-            placeholder="username"
+            placeholder="Masukan username"
           />
         </label>
 
@@ -79,7 +79,7 @@ export default function LoginForm() {
             type="password"
             value={form.password}
             onChange={(event) => setForm((prev) => ({ ...prev, password: event.target.value }))}
-            placeholder="••••••••"
+            placeholder="Masukan password"
           />
         </label>
 

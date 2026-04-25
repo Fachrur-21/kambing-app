@@ -119,7 +119,7 @@ export default function BuyerBerandaContent({ nama, initial, products }: BuyerBe
       <header className="rounded-[32px] border border-slate-200 bg-[radial-gradient(circle_at_top_left,#fef3c7_0,#ffffff_34%,#e0f2fe_100%)] p-6 shadow-sm lg:p-8">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.32em] text-slate-500">Beranda Pembeli</p>
+            <p className="text-xs font-bold uppercase tracking-[0.32em] text-slate-500">Beranda pembeli</p>
             <h1 className="mt-3 max-w-2xl text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
               Kambing berkualitas, proses belanja jelas, dan pesanan bisa dipantau dari satu tempat.
             </h1>
