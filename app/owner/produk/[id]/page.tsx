@@ -128,7 +128,7 @@ export default function OwnerProdukDetailPage() {
 
   function handleLogout() {
     localStorage.removeItem('access_token')
-    router.push('/login')
+    router.push('/')
   }
 
   useEffect(() => {

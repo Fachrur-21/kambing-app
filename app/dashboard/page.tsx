@@ -355,7 +355,7 @@ export default function DashboardPage() {
 
   function handleLogout() {
     localStorage.removeItem('access_token')
-    router.push('/login')
+    router.push('/')
   }
 
   if (loading) {

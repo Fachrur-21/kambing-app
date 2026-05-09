@@ -179,7 +179,7 @@ export default function PegawaiPesananPage() {
 
   function handleLogout() {
     localStorage.removeItem('access_token')
-    router.push('/login')
+    router.push('/')
   }
 
   if (loading) {

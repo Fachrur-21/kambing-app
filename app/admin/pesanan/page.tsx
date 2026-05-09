@@ -180,7 +180,7 @@ export default function AdminPesananPage() {
 
   function handleLogout() {
     localStorage.removeItem('access_token')
-    router.push('/login')
+    router.push('/')
   }
 
   const initial = useMemo(() => (nama || 'A').trim().charAt(0).toUpperCase(), [nama])

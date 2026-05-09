@@ -110,7 +110,7 @@ export default async function Home() {
     <main className="bg-[radial-gradient(circle_at_15%_10%,#fef3c7_0,#fff7ed_30%,#f8fafc_55%),radial-gradient(circle_at_85%_90%,#bae6fd_0,#f0f9ff_28%,transparent_50%)] px-4 py-8 text-slate-900 sm:px-6 lg:px-8">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6">
         <section className="rounded-[34px] border border-slate-200 bg-white/85 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.12)] backdrop-blur-sm lg:p-10">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-slate-500">Kambing App</p>
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-slate-500">Hasan Farm</p>
           <h1 className="mt-4 max-w-3xl text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             Pilih Kambing Terbaik Dengan Proses Beli yang Simpel
           </h1>

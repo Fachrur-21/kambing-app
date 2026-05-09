@@ -217,7 +217,7 @@ export default function OwnerPesananPage() {
 
   function handleLogout() {
     localStorage.removeItem('access_token')
-    router.push('/login')
+    router.push('/')
   }
 
   function openPreview(imageUrl: string, title: string) {

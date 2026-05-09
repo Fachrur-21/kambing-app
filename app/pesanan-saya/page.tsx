@@ -157,7 +157,7 @@ export default function PesananSayaPage() {
 
   function handleLogout() {
     localStorage.removeItem('access_token')
-    router.push('/login')
+    router.push('/')
   }
 
   function openPreview(imageUrl: string, title: string) {

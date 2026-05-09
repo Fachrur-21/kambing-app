@@ -65,8 +65,8 @@ const menuByRole: Record<AppRole, MenuItem[]> = {
   ],
   owner: [
     { label: 'Dashboard', href: '/dashboard', icon: 'dashboard' },
-    { label: 'Daftar Produk ', href: '/owner/produk', icon: 'product' },
-    { label: 'Daftar Pesanan', href: '/owner/pesanan', icon: 'order' },
+    // { label: 'Daftar Produk ', href: '/owner/produk', icon: 'product' },
+    // { label: 'Daftar Pesanan', href: '/owner/pesanan', icon: 'order' },
     { label: 'Laporan', href: '/owner/laporan', icon: 'report' }
   ],
   pegawai: [

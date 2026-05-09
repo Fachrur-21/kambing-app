@@ -64,7 +64,7 @@ export default function InternalMasukPage() {
 
 	function handleLogout() {
 		localStorage.removeItem('access_token')
-		router.push('/login')
+		router.push('/')
 	}
 
 	if (loading) {

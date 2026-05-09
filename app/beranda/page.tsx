@@ -89,7 +89,7 @@ export default function BerandaPembeliPage() {
 	const initial = useMemo(() => (nama || 'P').trim().charAt(0).toUpperCase(), [nama])
 	function handleLogout() {
 		localStorage.removeItem('access_token')
-		router.push('/login')
+		router.push('/')
 	}
 
 	if (loading) {
