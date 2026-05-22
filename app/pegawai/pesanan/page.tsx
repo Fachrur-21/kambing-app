@@ -203,7 +203,7 @@ export default function PegawaiPesananPage() {
 
       <section className="flex-1 p-4 lg:p-6">
         <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h1 className="text-2xl font-bold text-slate-900">Update Status Pesanan</h1>
+          <h1 className="text-2xl font-bold text-slate-900">Verifikasi Status Pesanan</h1>
           <p className="mt-1 text-sm text-slate-500">Akhiri proses pesanan dengan upload gambar bukti dan deskripsi.</p>
         </div>
 

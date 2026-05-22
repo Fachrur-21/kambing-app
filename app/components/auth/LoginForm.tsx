@@ -46,8 +46,24 @@ export default function LoginForm() {
         localStorage.setItem('access_token', result.token)
       }
 
-      setSuccess('Login berhasil. Mengalihkan ke dashboard...')
-      setTimeout(() => router.push('/dashboard'), 500)
+      // Save basic user info if present
+      if (result?.data) {
+        try {
+          localStorage.setItem('user', JSON.stringify(result.data))
+        } catch (e) {
+          // ignore storage errors
+        }
+      }
+
+      // Redirect based on role
+      const role = String(result?.data?.role || '').toLowerCase()
+      if (role === 'pegawai') {
+        setSuccess('Login berhasil. Mengalihkan ke halaman pegawai...')
+        setTimeout(() => router.push('/pegawai/pesanan'), 500)
+      } else {
+        setSuccess('Login berhasil. Mengalihkan ke dashboard...')
+        setTimeout(() => router.push('/dashboard'), 500)
+      }
     } catch {
       setError('Terjadi error saat login')
     } finally {

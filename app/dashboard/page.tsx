@@ -390,7 +390,7 @@ export default function DashboardPage() {
           <span className="grid h-10 w-10 place-items-center rounded-lg bg-cyan-500 text-white">
             <InfoOutlinedIcon className="text-xl" />
           </span>
-          <p className="text-xl font-medium">Selamat Datang di Kambing App, {nama}.</p>
+          <p className="text-xl font-medium">Selamat Datang di Hasan Farm, {nama}.</p>
         </div>
 
         {dashboardError ? <p className="mb-4 rounded-lg bg-red-50 px-4 py-2 text-sm text-red-700">{dashboardError}</p> : null}

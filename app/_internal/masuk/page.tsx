@@ -99,7 +99,7 @@ export default function InternalMasukPage() {
 					<span className="grid h-10 w-10 place-items-center rounded-lg bg-cyan-500 text-white">
 						<Icon icon="solar:info-circle-bold" className="text-xl" />
 					</span>
-					<p className="text-xl font-medium">Selamat Datang di Kambing App, {nama}.</p>
+					<p className="text-xl font-medium">Selamat Datang di Hasan Farm, {nama}.</p>
 				</div>
 
 				<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">

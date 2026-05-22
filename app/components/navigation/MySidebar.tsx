@@ -70,8 +70,8 @@ const menuByRole: Record<AppRole, MenuItem[]> = {
     { label: 'Laporan', href: '/owner/laporan', icon: 'report' }
   ],
   pegawai: [
-    { label: 'Dashboard', href: '/dashboard', icon: 'dashboard' },
-    { label: 'Update Status Pesanan', href: '/pegawai/pesanan', icon: 'order' },
+    // { label: 'Dashboard', href: '/dashboard', icon: 'dashboard' },
+    { label: 'Verifikasi Status Pesanan', href: '/pegawai/pesanan', icon: 'order' },
     { label: 'Riwayat Pesanan', href: '/pegawai/update-status', icon: 'status' }
   ],
   pembeli: [

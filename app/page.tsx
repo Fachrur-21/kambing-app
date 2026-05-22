@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { query } from '@/lib/db'
+import RedirectIfLoggedIn from '@/app/components/auth/RedirectIfLoggedIn'
 
 type PublicProduct = {
   id: number
@@ -108,6 +109,7 @@ export default async function Home() {
 
   return (
     <main className="bg-[radial-gradient(circle_at_15%_10%,#fef3c7_0,#fff7ed_30%,#f8fafc_55%),radial-gradient(circle_at_85%_90%,#bae6fd_0,#f0f9ff_28%,transparent_50%)] px-4 py-8 text-slate-900 sm:px-6 lg:px-8">
+      <RedirectIfLoggedIn />
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6">
         <section className="rounded-[34px] border border-slate-200 bg-white/85 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.12)] backdrop-blur-sm lg:p-10">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-slate-500">Hasan Farm</p>
